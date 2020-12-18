@@ -1,0 +1,28 @@
+doctype html
+html    
+    head
+        link(rel='stylesheet', href='./styles/landing.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+        script(src='./scripts/landing.js')
+        title ySpace | YourSpace
+    body
+        div(class='landing-container') 
+            form
+                p
+                    | Email: 
+                    input(type='email', id='login-email', class='input', value='')
+                p
+                    | Password: 
+                    input(type='password', id='login-password', class='input', value='')
+                input(type='submit', value='Submit', onclick='login()')
+            form
+                p
+                    | Username: 
+                    input(type='text', id='signup-username', class='input', value='')
+                p
+                    | Email: 
+                    input(type='email', id='signup-email', class='input', value='')
+                p
+                    | Password: 
+                    input(type='password', id='signup-password', class='input', value='')
+                input(type='submit', value='Submit', onclick='signup()')

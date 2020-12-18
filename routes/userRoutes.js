@@ -1,13 +1,14 @@
 const express = require('express');
-const User = require('./models/userModel');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken')
+const User = require('./../models/userModel');
 
 const router = express.Router();
 
-router.post('/', async (req, res, next) => {
+router.post('/signup', async (req, res, next) => {
     const body = req.body
-  
-    const saltRounds = 10
-    const passwordHash = await bcrypt.hash(body.password,saltRounds)
+    const saltRounds = 10;
+    const passwordHash = await bcrypt.hash(body.password, saltRounds);
   
     const user = await User.create({
       username: body.username,
@@ -15,12 +16,11 @@ router.post('/', async (req, res, next) => {
       passwordHash
     })
     res.json(user)
-  })
+})
   
-router.post('/', async (req, res, next) => {
-    const body = req.body
+router.post('/login', async (req, res, next) => {
+    const body = req.body;
     const user = await User.findOne({ username: body.username })
-    console.log(user,body)
     const passwordCorrect = user === null
       ? false
       : await bcrypt.compare(body.password, user.passwordHash)
@@ -43,5 +43,7 @@ router.post('/', async (req, res, next) => {
         token,
         username: user.username,
         name: user.name
-      })
+    })
 })
+
+module.exports = router;

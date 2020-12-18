@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 5% auto 50%;
+    grid-template-rows: 10% auto 10%;
+    height: 100vh;
+    background: url('./../images/landing-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+.landing-container {
+    grid-column-start: 2;
+    grid-row-start: 2;
+    background: rgba(255, 255, 255, .9);
+    padding: 5%;
+}
+.input {
+    padding: 10px 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid gray;
+}
+.input:focus {
+    outline: none;
+}

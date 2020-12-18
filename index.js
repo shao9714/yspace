@@ -1,18 +1,21 @@
 const express = require('express');
+var app = express();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken')
 
 const viewRoutes = require('./routes/viewRoutes');
 const userRoutes = require('./routes/userRoutes');
 
 require('dotenv').config();
 
-var app = express();
-
 app.use(morgan('dev'));
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(express.static('./views'))
+
+app.engine('pug', require('pug').__express);
+app.set('view engine', 'pug');
+app.set('views', './views');
 
 // Database connection
 const db = process.env.DB;
@@ -27,9 +30,9 @@ mongoose.connect(db, {
   console.log("Error encountered! " + e);
 });
 
+// Routes
 app.use("/", viewRoutes);
-app.use("/api/login", userRoutes)
-app.use("/api/signup", userRoutes)
+app.use("/api", userRoutes)
 
 var port = process.env.PORT || 8000;
 app.listen(port, () => {
