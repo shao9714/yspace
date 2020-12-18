@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const bcrypt = require('bcrypt');
+
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -14,23 +14,17 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         validate: [validator.isEmail, 'Email address must be valid']
     },
-    password: {
-        type: String,
-        require: [true, 'A password is required.'],
-        minlength: 8,
-        select: false
-    },
-    passwordConfirm: {
-        type: String,
-        require: [true, 'Passwords must be confirmed.'],
-        validate: {
-            validator: function(e) {
-                return e === this.password;
-            },
-            msg: 'Passwords must be the same.'
-        }
-    }
+    passwordHash: String
 });
+
+userSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString()
+    delete returnedObject._id
+    delete returnedObject.__v
+    delete returnedObject.passwordHash
+  }
+})
 
 const User = mongoose.model('users', userSchema);
 module.exports = User;
