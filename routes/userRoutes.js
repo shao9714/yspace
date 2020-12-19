@@ -20,6 +20,7 @@ router.post('/signup', async (req, res, next) => {
   
 router.post('/login', async (req, res, next) => {
     const body = req.body;
+    console.log(body);
     const user = await User.findOne({ email: body.email })
     const passwordCorrect = user === null
       ? false
