@@ -1,24 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* colors */
+}
+
 body {
-    margin: 0;
-    display: grid;
-    grid-template-columns: 5% auto 50%;
-    grid-template-rows: 10% auto 10%;
-    height: 100vh;
-    background: url('./../images/landing-image.jpg') no-repeat center center fixed;
-    background-size: cover;
+  font-family: "Spartan", serif;
+  background: url("../images/landing-image-flipped.jpg") no-repeat center center
+    fixed;
+  background-size: cover;
 }
-.landing-container {
-    grid-column-start: 2;
-    grid-row-start: 2;
-    background: rgba(255, 255, 255, .9);
-    padding: 5%;
-}
+
 .input {
-    padding: 10px 30px;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid gray;
+
 }
 .input:focus {
-    outline: none;
+  
 }
+
+.main {
+  min-height: 100vh;
+  display: grid;
+  grid-template: "blank modal";
+  grid-template-columns: 1fr 1fr;
+}
+
+.main__content {
+  grid-area: modal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  position: relative;
+  padding: 1rem;
+  width: auto;
+}
+
+.main__content-modal {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+}
+
+.border-elem {
+  position: absolute;
+  height: 70vh;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  border: 1px solid gray;
+}
+
+.welcome-phrase {
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+
+.form-container {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2.5rem;
+  border-radius: 10px;
+}
+
+.form-container__login,
+.form-container__signup {
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+#login-email,
+#login-password,
+#signup-username,
+#signup-password,
+#signup-email {
+  line-height: 1.1rem;
+  margin: 1rem;
+  padding: 10px 30px;
+  background: transparent;
+  border: none;
+  border: 2px solid gray;
+  border-radius: 15px;
+  outline: none;
+}
+
+.login-submit,
+.signup-submit {
+  font-size: 1.2rem;
+  margin: 1rem;
+  width: 100px;
+  padding: 8px 11px;
+  border-radius: 25px;
+  outline: none;
+}
+
+.login-submit:hover,
+.signup-submit:hover{
+  background-color: #cecece;
+}
+
+.prompt {
+  margin: 1rem;
+}
+
+.prompt-btn {
+  font-weight: bold;
+  color: darkblue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+

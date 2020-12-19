@@ -10,8 +10,14 @@ require('dotenv').config();
 
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(express.static('./views'))
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static('views'))
+
+// from express docs
+// After the view engine is set, 
+// you don’t have to specify the engine or 
+// load the template engine module in your app; 
+// Express loads the module internally
 
 app.engine('pug', require('pug').__express);
 app.set('view engine', 'pug');

@@ -20,7 +20,7 @@ router.post('/signup', async (req, res, next) => {
   
 router.post('/login', async (req, res, next) => {
     const body = req.body;
-    const user = await User.findOne({ username: body.username })
+    const user = await User.findOne({ email: body.email })
     const passwordCorrect = user === null
       ? false
       : await bcrypt.compare(body.password, user.passwordHash)
@@ -42,7 +42,7 @@ router.post('/login', async (req, res, next) => {
       .send({
         token,
         username: user.username,
-        name: user.name
+        email: user.email
     })
 })
 

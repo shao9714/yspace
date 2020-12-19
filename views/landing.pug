@@ -6,23 +6,23 @@ html
         script(src='./scripts/landing.js')
         title ySpace | YourSpace
     body
-        div(class='landing-container') 
-            form
-                p
-                    | Email: 
-                    input(type='email', id='login-email', class='input', value='')
-                p
-                    | Password: 
-                    input(type='password', id='login-password', class='input', value='')
-                input(type='submit', value='Submit', onclick='login()')
-            form
-                p
-                    | Username: 
-                    input(type='text', id='signup-username', class='input', value='')
-                p
-                    | Email: 
-                    input(type='email', id='signup-email', class='input', value='')
-                p
-                    | Password: 
-                    input(type='password', id='signup-password', class='input', value='')
-                input(type='submit', value='Submit', onclick='signup()')
+      main(class="main")
+        section(class="main__content")
+          div(class="border-elem")
+          div(class="main__content-modal")
+            h1(class="welcome-phrase") Welcome to YSPACE
+            div(class='form-container') 
+              form(class="form-container__login")
+                input(type='email', id='login-email', class='input', value='', placeholder="Email")
+                input(type='password', id='login-password', class='input', value='',placeholder="Password")
+                input(type='submit',class="login-submit", value='login', onclick='login()') 
+              form(class="form-container__signup hidden")
+                input(type='text', id='signup-username', class='input', value='',placeholder="Username")
+                input(type='email', id='signup-email', class='input', value='',placeholder="Email")
+                input(type='password', id='signup-password', class='input', value='',placeholder="Password")
+                input(type='submit',class="signup-submit", value='signup', onclick='signup()') 
+
+          div(class="prompt") 
+            span(class="prompt-text") Don't have an account? 
+            span(class="prompt-btn") Signup
+          
