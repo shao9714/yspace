@@ -21,7 +21,7 @@ app.use(express.static('views'))
 
 app.engine('pug', require('pug').__express);
 app.set('view engine', 'pug');
-app.set('views', './views');
+// app.set('views', './views');
 
 // Database connection
 const db = process.env.DB;

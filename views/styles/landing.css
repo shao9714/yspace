@@ -16,13 +16,6 @@ body {
   background-size: cover;
 }
 
-.input {
-
-}
-.input:focus {
-  
-}
-
 .main {
   min-height: 100vh;
   display: grid;
@@ -120,3 +113,7 @@ body {
   cursor: pointer;
 }
 
+[type=submit] {
+  position: relative;
+  left: 50px;
+}

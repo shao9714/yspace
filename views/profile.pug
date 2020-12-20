@@ -1,0 +1,22 @@
+doctype html
+html    
+    head
+        link(rel='stylesheet', href='./styles/profile.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+        script(src='./scripts/landing.js')
+        title ySpace | YourSpace
+    body
+      main(class="main")
+        div(class="container")
+          div(class="profile-info")
+            div(class="profile-picture-border")
+              img(src="./images/landing-image.jpg" alt="profile picture" class="profile-picture")
+            p(class="profile-username") Test
+            p(class="profile-email") testUser@gmail.com
+          div(class="user-posts")
+           div(class="post-card")
+            p(class="post-content") Hi! I'm new to ySpace!
+           div(class="post-card")
+            p(class="post-content") We will be dynamically rendered! How great!
+          
+          
