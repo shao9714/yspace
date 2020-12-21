@@ -1,22 +1,35 @@
 doctype html
 html    
     head
+        meta(charset="utf-8")
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css')
         link(rel='stylesheet', href='./styles/profile.css')
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
-        script(src='./scripts/landing.js')
+        script(src='./scripts/profile.js')
         title ySpace | YourSpace
-    body
+    body(onload="init()")
       main(class="main")
         div(class="container")
           div(class="profile-info")
             div(class="profile-picture-border")
               img(src="./images/landing-image.jpg" alt="profile picture" class="profile-picture")
-            p(class="profile-username") Test
-            p(class="profile-email") testUser@gmail.com
+            p(class="profile-username") 
+            p(class="profile-email") 
+          div(class="edit-toolbar")
           div(class="user-posts")
            div(class="post-card")
+            div(class="post-profile-picture-border")
+              img(src="./images/landing-image.jpg" alt="post profile picture" class="post-profile-picture")
+            p(class="post-username") Test
+            i(class="fas fa-pen edit-btn")
+            p(class="post-datetime") 12-18-2020 now
             p(class="post-content") Hi! I'm new to ySpace!
            div(class="post-card")
+            div(class="post-profile-picture-border")
+              img(src="./images/landing-image.jpg" alt="post profile picture" class="post-profile-picture")
+            p(class="post-username") Test
+            i(class="fas fa-pen edit-btn")
+            p(class="post-datetime") 12-18-2020 18:35
             p(class="post-content") We will be dynamically rendered! How great!
           
           

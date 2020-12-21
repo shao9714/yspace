@@ -8,8 +8,15 @@ function login() {
       "email": email,
       "password": password
     },
-    dataType: 'application/json',
-    complete: function (response) {
+    dataType: 'json',
+    success: function(res) {
+      localStorage.token = res.token;
+      localStorage.email = res.email;
+      window.location.href = "/profile"
+    },
+    error: function(error) {
+      alert("Email or password incorrect!");
+      document.getElementsByClassName("form-container__login")[0].reset();
     }
   });
 }
@@ -26,7 +33,7 @@ function signup() {
       "email": email,
       "password": password
     },
-    dataType: 'application/json',
+    dataType: 'json',
     complete: function (response) {
     }
   });

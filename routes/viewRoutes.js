@@ -11,4 +11,11 @@ router.get("/profile", function (req, res, next) {
     res.status(200).render('profile');
 });
 
+router.post("/profile", async function(req, res, next) {
+    var user = await User.findOne({email: req.body.email});
+    res.status(200).json({
+        user
+    });
+});
+
 module.exports = router;

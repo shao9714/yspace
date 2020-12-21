@@ -1,6 +1,7 @@
 doctype html
 html    
     head
+        meta(charset="utf-8")
         link(rel='stylesheet', href='./styles/landing.css')
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
         script(src='./scripts/landing.js')
@@ -15,12 +16,12 @@ html
               form(class="form-container__login")
                 input(type='email', id='login-email', class='input', value='', placeholder="Email")
                 input(type='password', id='login-password', class='input', value='',placeholder="Password")
-                input(type='submit',class="login-submit", value='login', onclick='login()') 
+                button(type="button", class="login-submit", value='login', onclick='login()') Login
               form(class="form-container__signup hidden")
                 input(type='text', id='signup-username', class='input', value='',placeholder="Username")
                 input(type='email', id='signup-email', class='input', value='',placeholder="Email")
                 input(type='password', id='signup-password', class='input', value='',placeholder="Password")
-                input(type='submit',class="signup-submit", value='signup', onclick='signup()') 
+                button(type="button", class="signup-submit", value='signup', onclick='signup()') Signup
 
           div(class="prompt") 
             span(class="prompt-text") Don't have an account? 
