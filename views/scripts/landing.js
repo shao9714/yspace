@@ -12,7 +12,8 @@ function login() {
     success: function(res) {
       localStorage.token = res.token;
       localStorage.email = res.email;
-      window.location.href = "/profile"
+      localStorage.username = res.username;
+      window.location.href = "/home"
     },
     error: function(error) {
       alert("Email or password incorrect!");
@@ -40,24 +41,6 @@ function signup() {
 }
 
 // login/signup toggle
-
-// const loginForm = $('.form-container__login')
-// const signupForm = $('.form-container__signup')
-
-// const promptBtn = $('.prompt-btn')
-// const promptText = $('.prompt-text')
-
-// promptBtn.on('click', () => {
-//   console.log("i'm here");
-//   if (signupForm.className === "hidden") {
-//     loginForm.classList.add("hidden")
-//     signupForm.classList.remove("hidden")
-//   } else {
-//     signupForm.classList.add("hidden")
-//     loginForm.classList.remove("hidden")
-//   }
-
-// })
 
 $(document).on('click', '.prompt-btn', function() {
 

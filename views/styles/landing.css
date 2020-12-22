@@ -96,7 +96,7 @@ body {
   border-radius: 25px;
   outline: none;
   position: relative;
-  left: 50px;
+  align-self: center;
 }
 
 .login-submit:hover,
@@ -113,4 +113,17 @@ body {
   color: darkblue;
   text-decoration: underline;
   cursor: pointer;
+}
+
+/* for small screens */
+
+@media screen and (max-width:768px) {
+  .main {
+    grid-template: "modal";
+    grid-template-columns: 100%;
+  }
+
+  .border-elem {
+    display: none;
+  }
 }
