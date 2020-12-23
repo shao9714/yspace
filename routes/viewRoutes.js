@@ -1,5 +1,6 @@
 const express = require('express');
 const User = require('./../models/userModel');
+const Tweet = require('./../models/tweetModel');
 
 const router = express.Router();
 
@@ -13,8 +14,12 @@ router.get("/profile", function (req, res, next) {
 
 router.post("/profile", async function(req, res, next) {
     var user = await User.findOne({email: req.body.email});
+    var tweets = await Tweet.find({
+        user: `${user.id}`
+    });
     res.status(200).json({
-        user
+        user,
+        tweets
     });
 });
 

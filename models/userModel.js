@@ -14,6 +14,10 @@ const userSchema = new mongoose.Schema({
         lowercase: true,
         validate: [validator.isEmail, 'Email address must be valid']
     },
+    profilePic: {
+        type: String,
+        default: 'landing-image.jpg'
+    },
     passwordHash: String
 });
 
