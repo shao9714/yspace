@@ -2,12 +2,14 @@ const express = require('express');
 var app = express();
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors')
 
 const viewRoutes = require('./routes/viewRoutes');
 const userRoutes = require('./routes/userRoutes');
 
 require('dotenv').config();
 
+app.use(cors())
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,9 +21,9 @@ app.use(express.static('views'))
 // load the template engine module in your app; 
 // Express loads the module internally
 
-app.engine('pug', require('pug').__express);
+// app.engine('pug', require('pug').__express);
 app.set('view engine', 'pug');
-// app.set('views', './views');
+app.set('views', './views');
 
 // Database connection
 const db = process.env.DB;
